@@ -8,7 +8,7 @@ class AnimationRect extends StatefulWidget {
 }
 
 class _AnimationRectState extends State<AnimationRect>
-    with SingleTickerProviderStateMixin { // 1
+    with SingleTickerProviderStateMixin { // 1 これの意味が軽くわからん　
 
   // 2
   Animation<double> animation;
