@@ -38,7 +38,7 @@ class TodoScreen extends StatelessWidget{
         title:Text(_todos[index].title),
         onTap: () {
           // ToDo の詳細画面にいくやつ
-
+        
         }
       ),
     ),
