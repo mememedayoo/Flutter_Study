@@ -14,6 +14,7 @@ void main()=>runApp(MaterialApp(
   home: TodoScreen(
     //this code is sample so,create list by machine
     todos:List<Todo>.generate(20,(i) =>Todo(
+
       title: 'TODO $i',
       description: 'TODO $i の詳細',
     ) ),
@@ -22,7 +23,7 @@ void main()=>runApp(MaterialApp(
 
 class TodoScreen extends StatelessWidget{
   final List<Todo> _todos;
-  TodoScreen({key key,@required List<Todo> todos})
+  TodoScreen({ key key,@required List<Todo> todos})
     :assert(todos != null),
     this._todos = todos,
     super(key:key);
@@ -37,6 +38,12 @@ class TodoScreen extends StatelessWidget{
       itemBuilder: (context,index)=>ListTile(
         title:Text(_todos[index].title),
         onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailScreen(todo: _todos[index]),
+              ),
+            );
           // ToDo の詳細画面にいくやつ
 
         }
@@ -50,7 +57,7 @@ class DetailScreen extends StatelessWidget{
   final Todo _todo;
 
   DetailScreen({key key,@required Todo todo})
-    : assert(todo != null,
+    : assert(todo != null),
     this._todo = todo,
     super(Key:key);
 @override
